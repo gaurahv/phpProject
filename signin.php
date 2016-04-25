@@ -36,7 +36,7 @@
         $servername = "localhost";
         $username = "root";
         $password = "";
-        $dbname = "Shopping";
+        $dbname = "shopping";
         $conn = new mysqli($servername, $username, $password, $dbname);
         if($conn->connect_error){
             die("Sorry Connection Failed Try again" . $conn->connect_error);

@@ -21,7 +21,7 @@
              $servername = "localhost";
                 $username = "root";
                 $password = null;
-                $db = "Shopping";
+                $db = "shopping";
                 $query = $_GET['searchkey'];
                 $conn = new mysqli($servername, $username, $password,$db);
                 if ($conn->connect_error) {
@@ -33,7 +33,7 @@
                 $sql = "SELECT id, flipkartId, snapdealId, Name FROM Product WHERE Name LIKE ? OR Category LIKE ?" ;
                 $stmt = $conn->prepare($sql);
                 $searchQuery  = '%'.$query.'%';
-                $stmt->bind_param('s', $searchQuery);
+                $stmt->bind_param('ss', $searchQuery,$searchQuery);
                 $stmt->bind_result($id, $flipkartId, $snapdealId,$name);
                 $stmt->execute();
         
